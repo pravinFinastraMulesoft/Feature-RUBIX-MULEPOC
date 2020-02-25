@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="67b4cbdb-c3e9-4b9e-9a60-997181c7e54d" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="pilotFlow" doc:id="11c56ec5-8243-4384-b8a4-6f36b5f30a82" >
+		<http:listener doc:name="Listener" doc:id="4cd10b73-f0e7-41ab-aaa5-fa810026a452" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="Hello User Welcome to the Mulesoft Integration Pilot Project" doc:name="Set Payload" doc:id="0ca44efa-24d4-43a2-8aad-cc28b98ba2a0" />
+		<logger level="INFO" doc:name="Logger" doc:id="3d4e5d80-03db-4281-b1fc-35d3aa00ff33" />
+	</flow>
+</mule>
